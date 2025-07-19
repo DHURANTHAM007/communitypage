@@ -8,32 +8,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Body Styles */
+        /* Global Styles */
+        :root {
+            --primary-dark: #0f172a; /* Deep Navy Blue */
+            --accent-gold: #ffd700;   /* Vibrant Gold */
+            --light-bg: #ffffff;      /* Clean White */
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Light grey background */
-            color: #343a40; /* Darker text for readability */
-            line-height: 1.7;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         /* Header and Navigation */
         header {
-            background: #0f172a; /* Deep Navy Blue from reference 1 */
-            color: #ffffff;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         nav {
@@ -43,7 +51,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
         }
 
@@ -55,211 +63,180 @@
         }
 
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
 
         nav ul li a {
-            color: #ffffff;
+            color: var(--text-light);
             text-decoration: none;
             font-weight: 600;
             padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s ease, color 0.3s ease;
+            border-bottom: 3px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #ffd700; /* Gold accent color */
-            border-bottom-color: #ffd700;
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://via.placeholder.com/1500x700.png?text=Ashish+Memorial+Campus') no-repeat center center/cover;
-            padding: 100px 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://via.placeholder.com/1500x700.png?text=Our+Campus') no-repeat center center/cover;
+            padding: 120px 0;
             text-align: center;
-            color: #ffffff;
+            color: var(--text-light);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin: 0;
+            margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-top: 10px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2rem auto;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #ffd700; /* Gold accent color */
-            color: #0f172a;
-            padding: 12px 25px;
-            margin-top: 25px;
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .cta-button:hover {
             background-color: #ffc400;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
-        /* Section Styling */
+        /* General Section Styling */
         section {
             padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 50px;
+            color: var(--primary-dark);
+            margin-bottom: 60px;
             position: relative;
         }
         
         .section-title::after {
             content: '';
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background: #ffd700;
+            background: var(--accent-gold);
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
         }
 
-        /* About Us Section */
-        #about p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Card-based layout for "What We Offer" */
+        /* "Why Choose Us" Section with Cards */
         .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 20px;
         }
 
         .card {
-            background: #ffffff;
+            background: var(--light-bg);
+            border: 1px solid #eee;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 35px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .card h3 {
-            color: #0f172a;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
             font-weight: 700;
             margin-top: 0;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: #e9ecef;
-        }
-        
-        .contact-info {
-            text-align: center;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
-            background: #0f172a;
-            color: #ffffff;
+            background: var(--primary-dark);
+            color: var(--text-light);
             text-align: center;
-            padding: 30px 0;
+            padding: 25px 0;
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header and Navigation -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo">Ashish Memorial</div>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#offerings">Our Offerings</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Ashish Memorial ISC School</h1>
-            <p>Fostering academic excellence and holistic development in a nurturing community.</p>
-            <a href="#contact" class="cta-button">Enroll Now</a>
-        </div>
-    </section>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Excellence in Education. Foundation for Life.</h1>
+                <p>Welcome to Ashish Memorial ISC School, where we cultivate young minds in a vibrant and supportive learning community.</p>
+                <a href="#contact" class="cta-button">Inquire Now</a>
+            </div>
+        </section>
 
-    <!-- About Us Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Welcome to Our School</h2>
-            <p>At Ashish Memorial ISC School, we are committed to providing an exceptional educational experience. Our philosophy balances rigorous academics with creative and physical development, ensuring our students grow into well-rounded, confident individuals ready to face the future.</p>
-        </div>
-    </section>
-
-    <!-- Offerings Section -->
-    <section id="offerings">
-        <div class="container">
-            <h2 class="section-title">What We Offer</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>Modern Curriculum</h3>
-                    <p>Our curriculum is ISC-aligned and designed to foster critical thinking, problem-solving, and a passion for lifelong learning.</p>
-                </div>
-                <div class="card">
-                    <h3>Expert Faculty</h3>
-                    <p>Our dedicated educators are experts in their fields, committed to providing personalized guidance and support to every student.</p>
-                </div>
-                <div class="card">
-                    <h3>Holistic Development</h3>
-                    <p>We emphasize sports, arts, and community service to ensure the complete intellectual, social, and physical growth of our students.</p>
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <h3>Advanced Curriculum</h3>
+                        <p>Our ISC-certified curriculum challenges students to think critically and prepares them for success in a globalized world.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Dedicated Faculty</h3>
+                        <p>Our teachers are passionate experts who provide personalized mentorship to foster each student's unique potential.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Holistic Approach</h3>
+                        <p>We balance academic rigor with robust programs in arts, athletics, and community service for well-rounded development.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-info">
-                <p>We invite you to learn more about our school and the admission process.</p>
-                <p><strong>Email:</strong> admissions@ashishmemorial.edu</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
-                <a href="#contact" class="cta-button">Request Information</a>
+        </section>
+        
+        <section id="contact" style="background-color: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title">Join Our Community</h2>
+                 <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                    <p>Ready to learn more about our programs and the admissions process? Reach out to us today to schedule a visit or request more information.</p>
+                    <a href="#" class="cta-button">Contact Admissions</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2024 Ashish Memorial ISC School. All Rights Reserved.</p>
